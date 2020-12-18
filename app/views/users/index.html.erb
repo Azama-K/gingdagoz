@@ -9,7 +9,11 @@
 <br>
 <br>
 
+<p><a href="/users/<%= current_user.id %>"><%= current_user.name %></a></p>
+<hr>
 <% @users.each do |u| %>
+  <% if u.id != current_user.id %>
   <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
   <hr>
+  <% end %>
 <% end %>
