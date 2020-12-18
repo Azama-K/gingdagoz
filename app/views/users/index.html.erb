@@ -12,6 +12,7 @@
 <br>
 
 <% @users.each do |u| %>
+<<<<<<< HEAD
   <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
   <hr>
 <% end %>
@@ -21,3 +22,18 @@
 </footer>
 </div>
 </body>
+=======
+  <% if u.id != current_user.id %>
+    <% if u.student? %>
+    <p>生徒:<a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
+    <hr>
+    <% elsif u.ta? %>
+    <p>TA:<a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
+    <hr>
+    <% else %>
+    <p><font color="red">先生:</font><a href="/users/<%= u.id %>"><%= u.name %>先生</a></p>
+    <hr>
+    <% end %>
+  <% end %>
+<% end %>
+>>>>>>> 5c41a9e1bb32b9e76defd451fe8bf655829af939
